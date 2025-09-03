@@ -5,6 +5,7 @@ import { scrollToElement } from "@/lib/utils";
 import { ArrowDown, Star, Award, Clock } from "lucide-react";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function HeroSection() {
   const [mounted, setMounted] = useState(false);
@@ -13,7 +14,6 @@ export default function HeroSection() {
     setMounted(true);
   }, []);
 
-  // Анимированный счетчик
   const AnimatedCounter = ({
     end,
     duration = 2,
@@ -52,17 +52,18 @@ export default function HeroSection() {
   };
   return (
     <section id="hero" className="relative min-h-screen overflow-hidden">
-      {/* Фоновое изображение */}
       <div className="absolute inset-0">
-        <img
+        <Image
           src="/hero-bg.jpg"
           alt="Интерьер русской бани"
-          className="w-full h-full object-cover"
+          fill
+          className="object-cover"
+          priority
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-wood-darkest/70"></div>
       </div>
 
-      {/* Анимированные частицы на фоне */}
       <div className="absolute inset-0 overflow-hidden">
         {[...Array(3)].map((_, i) => (
           <motion.div
@@ -92,18 +93,15 @@ export default function HeroSection() {
         ))}
       </div>
 
-      {/* Основной контент */}
       <div className="relative z-10 min-h-screen flex items-center">
         <div className="w-full px-4 sm:px-8 md:px-16 lg:px-24 xl:px-32">
           <div className="flex items-center justify-start">
-            {/* Левая часть - с адаптивными отступами */}
             <motion.div
               className="max-w-4xl w-full pr-0 sm:pr-4 lg:pr-8"
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
-              {/* Небольшой префикс */}
               <motion.div
                 className="flex items-center mb-6"
                 initial={{ opacity: 0, x: -20 }}
@@ -145,7 +143,6 @@ export default function HeroSection() {
                 </motion.span>
               </motion.h1>
 
-              {/* Подзаголовок и ключевые данные */}
               <motion.div
                 className="relative mb-8"
                 initial={{ opacity: 0 }}
@@ -162,7 +159,6 @@ export default function HeroSection() {
                   transition={{ duration: 1, delay: 1.1 }}
                 />
 
-                {/* Встроенная ключевая информация */}
                 <div className="flex flex-wrap gap-8 text-wood-light/80 mb-8">
                   <motion.div
                     className="flex items-center"
@@ -195,7 +191,6 @@ export default function HeroSection() {
                 </div>
               </motion.div>
 
-              {/* Описание */}
               <motion.p
                 className="font-manrope text-xl text-wood-light/80 mb-12 max-w-2xl leading-relaxed"
                 initial={{ opacity: 0, y: 20 }}
@@ -205,7 +200,6 @@ export default function HeroSection() {
                 {siteData.hero.description}
               </motion.p>
 
-              {/* Кнопки */}
               <motion.div
                 className="flex flex-col sm:flex-row gap-4"
                 initial={{ opacity: 0, y: 30 }}
@@ -241,7 +235,6 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Скролл индикатор */}
       <motion.div
         className="hidden sm:flex absolute bottom-8 z-20 w-full justify-center"
         initial={{ opacity: 0, y: 20 }}

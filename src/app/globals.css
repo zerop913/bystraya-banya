@@ -237,7 +237,6 @@ html {
   box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.2);
 }
 
-/* Кастомный скроллбар */
 ::-webkit-scrollbar {
   width: 12px;
 }
@@ -257,8 +256,59 @@ html {
   background: linear-gradient(135deg, #d97706, #92400e);
 }
 
-/* Для Firefox */
 * {
   scrollbar-width: thin;
   scrollbar-color: #f59e0b #f5e6d3;
+}
+
+::selection {
+  background: rgba(255, 255, 102, 0.25);
+  text-shadow: none;
+}
+
+::-moz-selection {
+  background: rgba(255, 255, 102, 0.25);
+  text-shadow: none;
+}
+
+h1::selection,
+h2::selection,
+h3::selection,
+h4::selection,
+h5::selection,
+h6::selection {
+  background: rgba(255, 255, 153, 0.3);
+  text-shadow: none;
+}
+
+h1::-moz-selection,
+h2::-moz-selection,
+h3::-moz-selection,
+h4::-moz-selection,
+h5::-moz-selection,
+h6::-moz-selection {
+  background: rgba(255, 255, 153, 0.3);
+  text-shadow: none;
+}
+
+.btn-primary::selection,
+.btn-secondary::selection {
+  background: rgba(255, 255, 255, 0.3);
+  color: inherit;
+}
+
+.btn-primary::-moz-selection,
+.btn-secondary::-moz-selection {
+  background: rgba(255, 255, 255, 0.3);
+  color: inherit;
+}
+
+.form-input::selection,
+.form-textarea::selection {
+  background: rgba(255, 255, 204, 0.2);
+}
+
+.form-input::-moz-selection,
+.form-textarea::-moz-selection {
+  background: rgba(255, 255, 204, 0.2);
 }

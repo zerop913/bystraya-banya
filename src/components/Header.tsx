@@ -35,7 +35,6 @@ export default function Header() {
       >
         <div className="px-8 sm:px-12 lg:px-16 xl:px-20">
           <div className="flex items-center justify-between h-20 lg:h-24">
-            {/* Логотип */}
             <motion.div
               whileHover={{ scale: 1.05 }}
               className="flex items-center space-x-3 cursor-pointer"
@@ -56,7 +55,6 @@ export default function Header() {
               </div>
             </motion.div>
 
-            {/* Навигация для десктопа */}
             <nav className="hidden lg:flex items-center space-x-8">
               {navItems.map((item) => (
                 <motion.button
@@ -71,11 +69,9 @@ export default function Header() {
               ))}
             </nav>
 
-            {/* Контакты и кнопка */}
             <div className="flex items-center space-x-4">
-              {/* Телефон - скрыт на мобильных */}
               <motion.a
-                href="tel:+78005557755"
+                href="tel:+77686458445"
                 whileHover={{ scale: 1.05 }}
                 className="hidden md:flex items-center space-x-2 text-wood-light hover:text-white transition-colors duration-300 group"
               >
@@ -84,7 +80,7 @@ export default function Header() {
                 </div>
                 <div className="hidden lg:block">
                   <p className="font-oswald font-bold text-sm">
-                    +7 (800) 555-77-55
+                    +7 (768) 645-8445
                   </p>
                   <p className="font-inter text-xs text-wood-light/80">
                     {siteData.company.workTime}
@@ -92,7 +88,6 @@ export default function Header() {
                 </div>
               </motion.a>
 
-              {/* Кнопка заказа звонка */}
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -102,7 +97,6 @@ export default function Header() {
                 ЗАКАЗАТЬ ЗВОНОК
               </motion.button>
 
-              {/* Мобильное меню */}
               <motion.button
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -115,7 +109,6 @@ export default function Header() {
         </div>
       </motion.header>
 
-      {/* Мобильное меню */}
       <motion.div
         initial={{ opacity: 0, height: 0 }}
         animate={{
@@ -143,10 +136,9 @@ export default function Header() {
               </motion.button>
             ))}
 
-            {/* Контакты в мобильном меню */}
             <div className="pt-4 border-t border-wood-light/20">
               <motion.a
-                href="tel:+78005557755"
+                href="tel:+77686458445"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{
                   opacity: isMobileMenuOpen ? 1 : 0,
@@ -157,7 +149,7 @@ export default function Header() {
               >
                 <Phone size={18} />
                 <div>
-                  <p className="font-oswald font-bold">+7 (800) 555-77-55</p>
+                  <p className="font-oswald font-bold">+7 (768) 645-8445</p>
                   <p className="font-inter text-sm text-wood-light/80">
                     {siteData.company.workTime}
                   </p>
@@ -181,7 +173,6 @@ export default function Header() {
         </div>
       </motion.div>
 
-      {/* Оверлей для мобильного меню */}
       {isMobileMenuOpen && (
         <motion.div
           initial={{ opacity: 0 }}

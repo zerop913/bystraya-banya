@@ -27,7 +27,6 @@ export default function AdvantagesSection() {
       className="section-padding bg-wood-light relative"
     >
       <div className="container-custom">
-        {/* Креативная асимметричная компоновка */}
         <div className="space-y-16">
           {siteData.advantages.map((advantage, index) => {
             const IconComponent =
@@ -50,18 +49,15 @@ export default function AdvantagesSection() {
                   isEven ? "flex-row" : "flex-row-reverse"
                 } max-w-6xl ${isEven ? "ml-0" : "ml-auto"}`}
               >
-                {/* Числовой блок */}
                 <div className="flex-shrink-0">
                   <motion.div
                     whileHover={{ rotate: 5, scale: 1.1 }}
                     className="relative"
                   >
-                    {/* Большая цифра как фон */}
                     <div className="text-[120px] md:text-[180px] font-black text-accent-amber/10 leading-none select-none">
                       {index === 0 ? "30" : index === 1 ? "∞" : "3"}
                     </div>
 
-                    {/* Иконка поверх */}
                     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                       <div className="w-16 h-16 bg-wood-darkest rounded-full flex items-center justify-center">
                         <IconComponent
@@ -73,7 +69,6 @@ export default function AdvantagesSection() {
                   </motion.div>
                 </div>
 
-                {/* Текстовый блок */}
                 <div
                   className={`flex-1 ${isEven ? "text-left" : "text-right"}`}
                 >
@@ -110,7 +105,6 @@ export default function AdvantagesSection() {
                     {advantage.description}
                   </motion.p>
 
-                  {/* Декоративные точки */}
                   <motion.div
                     className={`flex gap-2 mt-6 ${
                       isEven ? "justify-start" : "justify-end"
@@ -139,7 +133,6 @@ export default function AdvantagesSection() {
           })}
         </div>
 
-        {/* Финальный декоративный элемент */}
         <motion.div
           className="mt-20 text-center"
           initial={{ opacity: 0, scale: 0.8 }}

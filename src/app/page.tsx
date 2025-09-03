@@ -7,6 +7,7 @@ import ProjectsSection from "@/components/ProjectsSection";
 import ProcessSection from "@/components/ProcessSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
+import DeveloperCredit from "@/components/DeveloperCredit";
 
 export default function HomePage() {
   return (
@@ -14,14 +15,27 @@ export default function HomePage() {
       <Header />
       <main className="overflow-x-hidden">
         <HeroSection />
-        <AdvantagesSection />
-        <BathTypesSection />
-        <CalculatorSection />
-        <ProjectsSection />
-        <ProcessSection />
-        <ContactSection />
-        <Footer />
+        <section id="advantages" aria-label="Наши преимущества">
+          <AdvantagesSection />
+        </section>
+        <section id="bath-types" aria-label="Типы бань и саун">
+          <BathTypesSection />
+        </section>
+        <section id="calculator" aria-label="Калькулятор стоимости">
+          <CalculatorSection />
+        </section>
+        <section id="projects" aria-label="Наши проекты">
+          <ProjectsSection />
+        </section>
+        <section id="process" aria-label="Процесс строительства">
+          <ProcessSection />
+        </section>
+        <section id="contact" aria-label="Контакты">
+          <ContactSection />
+        </section>
       </main>
+      <Footer />
+      <DeveloperCredit />
     </>
   );
 }

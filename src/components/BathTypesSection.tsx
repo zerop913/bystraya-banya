@@ -4,7 +4,9 @@ import { motion } from "framer-motion";
 import { useIntersectionObserver } from "@/hooks/useScrollAnimation";
 import { useRef, useState } from "react";
 import { siteData } from "@/data/siteData";
+import { BathType } from "@/types/siteData";
 import BathModal from "./BathModal";
+import Image from "next/image";
 
 export default function BathTypesSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -14,10 +16,10 @@ export default function BathTypesSection() {
     "bath-types-section"
   );
 
-  const [selectedBath, setSelectedBath] = useState<any>(null);
+  const [selectedBath, setSelectedBath] = useState<BathType | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const openModal = (bathType: any) => {
+  const openModal = (bathType: BathType) => {
     setSelectedBath(bathType);
     setIsModalOpen(true);
   };
@@ -27,7 +29,6 @@ export default function BathTypesSection() {
     setSelectedBath(null);
   };
 
-  // Изображения для типов бань
   const bathImages = [
     "/bath-russian.jpg",
     "/bath-finnish.jpg",
@@ -43,7 +44,6 @@ export default function BathTypesSection() {
       ref={sectionRef}
       className="section-padding bg-gradient-to-b from-wood-light via-wood-medium to-wood-dark relative overflow-hidden"
     >
-      {/* Декоративный фон */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-20 w-64 h-64 bg-accent-amber rounded-full blur-3xl"></div>
         <div className="absolute bottom-32 right-32 w-96 h-96 bg-accent-copper rounded-full blur-3xl"></div>
@@ -51,7 +51,6 @@ export default function BathTypesSection() {
       </div>
 
       <div className="container-custom relative z-10">
-        {/* Креативный заголовок */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
@@ -59,7 +58,6 @@ export default function BathTypesSection() {
           className="text-center mb-16"
         >
           <div className="relative inline-block mb-6">
-            {/* Основной заголовок как фоновая декорация */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={isVisible ? { opacity: 1, scale: 1 } : {}}
@@ -86,7 +84,6 @@ export default function BathTypesSection() {
             Выберите подходящий тип бани для вашего участка и бюджета
           </motion.p>
         </motion.div>{" "}
-        {/* Оригинальная креативная сетка */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
@@ -115,15 +112,15 @@ export default function BathTypesSection() {
                 bg-wood-light/10 backdrop-blur-sm border border-wood-light/20
               `}
               >
-                {/* Фоновое изображение */}
-                <img
+                <Image
                   src={bathImages[index]}
                   alt={bathType.name}
-                  className="absolute inset-0 w-full h-full object-cover"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-wood-darkest/60 to-wood-darkest/80"></div>
 
-                {/* Иконка типа бани */}
                 <div className="absolute top-6 right-6">
                   <div className="w-12 h-12 bg-accent-amber/20 rounded-full flex items-center justify-center backdrop-blur-sm">
                     <span className="text-accent-amber font-bold text-lg">
@@ -132,7 +129,6 @@ export default function BathTypesSection() {
                   </div>
                 </div>
 
-                {/* Контент */}
                 <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-wood-darkest/90 to-transparent">
                   <h3 className="font-playfair text-xl md:text-2xl font-bold text-white mb-2">
                     {bathType.name}
@@ -156,7 +152,6 @@ export default function BathTypesSection() {
                   </div>
                 </div>
 
-                {/* Декоративные элементы при наведении */}
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                   <div className="absolute top-4 left-4 w-8 h-8 border-t-2 border-l-2 border-accent-amber"></div>
                   <div className="absolute bottom-4 right-4 w-8 h-8 border-b-2 border-r-2 border-accent-amber"></div>
@@ -167,7 +162,6 @@ export default function BathTypesSection() {
         </motion.div>
       </div>
 
-      {/* Модальное окно */}
       <BathModal
         isOpen={isModalOpen}
         onClose={closeModal}

@@ -44,7 +44,6 @@ export function useIntersectionObserver(
     const element = elementRef.current;
     if (!element || !elementId) return;
 
-    // Проверяем, был ли этот элемент уже показан
     if (viewedElements.has(elementId)) {
       setIsVisible(true);
       return;
@@ -54,7 +53,7 @@ export function useIntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          viewedElements.add(elementId); // Помечаем как просмотренный
+          viewedElements.add(elementId);
         }
       },
       {

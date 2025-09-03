@@ -54,7 +54,6 @@ export default function CalculatorSection() {
       ref={sectionRef}
       className="section-padding bg-gradient-to-br from-wood-light to-wood-medium relative overflow-hidden"
     >
-      {/* Декоративный фон */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-10 left-10 w-72 h-72 bg-accent-amber rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-20 w-96 h-96 bg-accent-copper rounded-full blur-3xl"></div>
@@ -62,7 +61,6 @@ export default function CalculatorSection() {
       </div>
 
       <div className="container-custom relative z-10">
-        {/* Креативный заголовок */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
@@ -98,7 +96,6 @@ export default function CalculatorSection() {
           </motion.p>
         </motion.div>
 
-        {/* Улучшенный калькулятор */}
         <div className="relative max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -106,7 +103,6 @@ export default function CalculatorSection() {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="grid lg:grid-cols-3 gap-6 items-start"
           >
-            {/* Левая колонка - Размеры */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={isVisible ? { opacity: 1, x: 0 } : {}}
@@ -127,7 +123,6 @@ export default function CalculatorSection() {
                 </div>
 
                 <div className="space-y-6">
-                  {/* Ширина */}
                   <div>
                     <label className="block text-sm font-semibold text-wood-darkest mb-3 uppercase tracking-wide">
                       Ширина
@@ -151,7 +146,6 @@ export default function CalculatorSection() {
                     </div>
                   </div>
 
-                  {/* Длина */}
                   <div>
                     <label className="block text-sm font-semibold text-wood-darkest mb-3 uppercase tracking-wide">
                       Длина
@@ -175,7 +169,6 @@ export default function CalculatorSection() {
                     </div>
                   </div>
 
-                  {/* Площадь */}
                   <motion.div
                     className="bg-gradient-to-br from-accent-amber/10 to-accent-copper/5 rounded-xl p-4 text-center border border-accent-amber/20"
                     key={width * height}
@@ -197,14 +190,12 @@ export default function CalculatorSection() {
               </div>
             </motion.div>
 
-            {/* Центральная колонка - Параметры */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={isVisible ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.8, duration: 0.8 }}
               className="space-y-6"
             >
-              {/* Материал */}
               <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-wood-light/20 hover:shadow-2xl transition-all duration-300">
                 <div className="flex items-center mb-4">
                   <Home className="w-5 h-5 text-accent-amber mr-3" />
@@ -262,7 +253,6 @@ export default function CalculatorSection() {
                 </div>
               </div>
 
-              {/* Фундамент */}
               <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-wood-light/20 hover:shadow-2xl transition-all duration-300">
                 <div className="flex items-center mb-4">
                   <Settings className="w-5 h-5 text-accent-copper mr-3" />
@@ -322,7 +312,6 @@ export default function CalculatorSection() {
                 </div>
               </div>
 
-              {/* Опции */}
               <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-wood-light/20 hover:shadow-2xl transition-all duration-300">
                 <h4 className="font-oswald font-bold text-wood-darkest mb-4 flex items-center">
                   <span className="w-2 h-2 bg-gradient-to-r from-accent-amber to-accent-copper rounded-full mr-3"></span>
@@ -387,7 +376,6 @@ export default function CalculatorSection() {
               </div>
             </motion.div>
 
-            {/* Правая колонка - Результат */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               animate={isVisible ? { opacity: 1, x: 0 } : {}}
@@ -403,7 +391,6 @@ export default function CalculatorSection() {
                   <div className="w-12 h-0.5 bg-gradient-to-r from-accent-amber to-accent-copper mx-auto rounded-full"></div>
                 </div>
 
-                {/* Цена */}
                 <motion.div
                   key={price}
                   initial={{ scale: 0.9, opacity: 0 }}
@@ -419,7 +406,6 @@ export default function CalculatorSection() {
                   </div>
                 </motion.div>
 
-                {/* Детали */}
                 <div className="space-y-2 mb-6 text-sm">
                   <div className="flex justify-between items-center py-1">
                     <span className="text-wood-light/70">Материал:</span>
@@ -451,7 +437,6 @@ export default function CalculatorSection() {
                   )}
                 </div>
 
-                {/* Кнопки */}
                 <div className="space-y-3">
                   <motion.button
                     onClick={scrollToContact}
@@ -468,7 +453,6 @@ export default function CalculatorSection() {
           </motion.div>
         </div>
 
-        {/* Дополнительная информация */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
@@ -485,7 +469,6 @@ export default function CalculatorSection() {
         </motion.div>
       </div>
 
-      {/* Улучшенные стили для слайдеров */}
       <style jsx>{`
         .slider::-webkit-slider-thumb {
           appearance: none;

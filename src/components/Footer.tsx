@@ -23,17 +23,14 @@ export default function Footer() {
           transition={{ duration: 0.8 }}
           className="text-center"
         >
-          {/* Логотип компании */}
           <h3 className="font-playfair text-3xl md:text-4xl font-bold text-accent-amber mb-4">
             {siteData.company.name}
           </h3>
 
-          {/* Описание */}
           <p className="font-manrope text-wood-light/80 text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
             {siteData.company.description}
           </p>
 
-          {/* Контактная информация */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -46,7 +43,7 @@ export default function Footer() {
               </div>
               <div className="text-wood-light font-manrope text-center">
                 <div className="text-sm opacity-70 mb-1">Телефон</div>
-                <div className="font-semibold">+7 (812) 123-45-67</div>
+                <div className="font-semibold">+7 (768) 645-8445</div>
               </div>
             </motion.div>
 
@@ -98,7 +95,6 @@ export default function Footer() {
             </motion.div>
           </div>
 
-          {/* Преимущества */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
@@ -123,10 +119,8 @@ export default function Footer() {
             </div>
           </motion.div>
 
-          {/* Разделитель */}
           <div className="w-24 h-px bg-accent-amber mx-auto mb-8"></div>
 
-          {/* Копирайт */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={isVisible ? { opacity: 1 } : {}}
@@ -134,11 +128,8 @@ export default function Footer() {
             className="text-wood-light/60 font-manrope text-sm"
           >
             <p className="mb-2">
-              © {new Date().getFullYear()} {siteData.company.name}. Все права
-              защищены.
-            </p>
-            <p className="text-xs">
-              Лицензия на строительство №123456789 | ИНН 1234567890
+              &copy; {new Date().getFullYear()} {siteData.company.name}. Все
+              права защищены.
             </p>
           </motion.div>
         </motion.div>

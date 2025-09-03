@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Clock, Star, Thermometer, Droplets, Settings } from "lucide-react";
 import { useEffect } from "react";
+import Image from "next/image";
 
 interface BathType {
   id: number;
@@ -29,7 +30,6 @@ export default function BathModal({
   onClose,
   bathType,
 }: BathModalProps) {
-  // Блокируем скролл при открытии модального окна
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -37,13 +37,11 @@ export default function BathModal({
       document.body.style.overflow = "unset";
     }
 
-    // Очищаем при размонтировании
     return () => {
       document.body.style.overflow = "unset";
     };
   }, [isOpen]);
 
-  // Закрытие по клавише Escape
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -86,7 +84,6 @@ export default function BathModal({
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Оверлей */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -96,7 +93,6 @@ export default function BathModal({
             onClick={onClose}
           />
 
-          {/* Модальное окно */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 50 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -109,7 +105,6 @@ export default function BathModal({
               className="relative bg-wood-darkest rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl border border-wood-light/20"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Кнопка закрытия */}
               <motion.button
                 onClick={onClose}
                 whileHover={{ scale: 1.1 }}
@@ -119,16 +114,16 @@ export default function BathModal({
                 <X size={18} />
               </motion.button>
 
-              {/* Заголовочное изображение */}
               <div className="relative h-64 overflow-hidden">
-                <img
+                <Image
                   src={bathType.image}
                   alt={bathType.name}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 80vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-wood-darkest via-wood-darkest/50 to-transparent"></div>
 
-                {/* Заголовок поверх изображения */}
                 <div className="absolute bottom-6 left-6 right-16">
                   <motion.h2
                     initial={{ opacity: 0, y: 20 }}
@@ -159,12 +154,10 @@ export default function BathModal({
                 </div>
               </div>
 
-              {/* Основной контент */}
               <div
                 className="p-6 overflow-y-auto"
                 style={{ maxHeight: "calc(90vh - 264px - 100px)" }}
               >
-                {/* Описание */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -176,11 +169,8 @@ export default function BathModal({
                   </p>
                 </motion.div>
 
-                {/* Контент в сетке */}
                 <div className="grid md:grid-cols-2 gap-6">
-                  {/* Левая колонка */}
                   <div className="space-y-6">
-                    {/* Характеристики */}
                     <motion.div
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -202,7 +192,6 @@ export default function BathModal({
                       </div>
                     </motion.div>
 
-                    {/* Преимущества */}
                     {bathType.benefits && (
                       <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -227,9 +216,7 @@ export default function BathModal({
                     )}
                   </div>
 
-                  {/* Правая колонка */}
                   <div className="space-y-6">
-                    {/* Материалы */}
                     {bathType.materials && (
                       <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -253,7 +240,6 @@ export default function BathModal({
                       </motion.div>
                     )}
 
-                    {/* Комплектация */}
                     {bathType.included && (
                       <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -280,7 +266,6 @@ export default function BathModal({
                 </div>
               </div>
 
-              {/* Футер с кнопками - фиксированный */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

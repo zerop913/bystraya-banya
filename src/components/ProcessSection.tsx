@@ -36,7 +36,6 @@ export default function ProcessSection() {
       ref={sectionRef}
       className="section-padding bg-gradient-to-b from-wood-medium to-wood-dark relative overflow-hidden"
     >
-      {/* Декоративный фон */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-20 left-10 w-96 h-96 bg-accent-amber rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-20 w-80 h-80 bg-accent-copper rounded-full blur-3xl"></div>
@@ -44,7 +43,6 @@ export default function ProcessSection() {
       </div>
 
       <div className="container-custom relative z-10 px-4 sm:px-0">
-        {/* Улучшенный заголовок в едином стиле */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
@@ -79,7 +77,6 @@ export default function ProcessSection() {
           </motion.p>
         </motion.div>
 
-        {/* Улучшенные этапы */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
@@ -103,7 +100,6 @@ export default function ProcessSection() {
                     : "flex-row lg:flex-row-reverse"
                 } max-w-6xl mx-auto`}
               >
-                {/* Контент */}
                 <div className={`flex-1`}>
                   <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 hover:shadow-xl">
                     <div
@@ -152,7 +148,6 @@ export default function ProcessSection() {
                   </div>
                 </div>
 
-                {/* Номер этапа */}
                 <div className="flex-shrink-0 relative">
                   <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-wood-darkest to-wood-dark border-2 border-accent-amber rounded-full flex items-center justify-center shadow-xl">
                     <span className="font-playfair text-lg sm:text-xl font-bold text-accent-amber">
@@ -160,7 +155,6 @@ export default function ProcessSection() {
                     </span>
                   </div>
 
-                  {/* Улучшенная соединительная линия */}
                   {index < siteData.process.steps.length - 1 && (
                     <div className="absolute top-12 sm:top-16 left-1/2 transform -translate-x-1/2">
                       <div className="w-0.5 h-4 sm:h-6 bg-gradient-to-b from-accent-amber to-accent-amber/30 mx-auto"></div>

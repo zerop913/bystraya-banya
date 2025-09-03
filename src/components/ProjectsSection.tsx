@@ -5,6 +5,7 @@ import { useIntersectionObserver } from "@/hooks/useScrollAnimation";
 import { useRef } from "react";
 import { MapPin, Ruler, Hammer, Award, Star, Heart } from "lucide-react";
 import { siteData } from "@/data/siteData";
+import Image from "next/image";
 
 export default function ProjectsSection() {
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -21,7 +22,6 @@ export default function ProjectsSection() {
         ref={sectionRef}
         className="section-padding bg-gradient-to-b from-wood-light to-wood-medium relative overflow-hidden"
       >
-        {/* Декоративный фон */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute top-20 left-10 w-96 h-96 bg-accent-amber rounded-full blur-3xl"></div>
           <div className="absolute bottom-10 right-20 w-80 h-80 bg-accent-copper rounded-full blur-3xl"></div>
@@ -29,7 +29,6 @@ export default function ProjectsSection() {
         </div>
 
         <div className="container-custom relative z-10">
-          {/* Креативный заголовок в едином стиле */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
@@ -64,7 +63,6 @@ export default function ProjectsSection() {
             </motion.p>
           </motion.div>
 
-          {/* Сетка проектов */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
@@ -88,17 +86,16 @@ export default function ProjectsSection() {
                   bg-wood-light/10 backdrop-blur-sm border border-wood-light/20
                 `}
                 >
-                  {/* Изображение */}
-                  <img
+                  <Image
                     src={project.image}
                     alt={project.title}
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
 
-                  {/* Градиент оверлей */}
                   <div className="absolute inset-0 bg-gradient-to-t from-wood-darkest/80 via-wood-darkest/30 to-transparent"></div>
 
-                  {/* Флагманский badge для первого проекта */}
                   {index === 0 && (
                     <div className="absolute top-4 left-4">
                       <div className="bg-accent-amber text-white px-3 py-1 rounded-full font-oswald font-bold text-sm shadow-lg">
@@ -107,7 +104,6 @@ export default function ProjectsSection() {
                     </div>
                   )}
 
-                  {/* Контент */}
                   <div className="absolute bottom-0 left-0 right-0 p-6">
                     <h3
                       className={`font-playfair font-bold text-white mb-2 ${
@@ -137,7 +133,6 @@ export default function ProjectsSection() {
             ))}
           </motion.div>
 
-          {/* Статистика */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
@@ -186,7 +181,6 @@ export default function ProjectsSection() {
             </div>
           </motion.div>
 
-          {/* Призыв к действию */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}

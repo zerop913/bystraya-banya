@@ -42,7 +42,6 @@ export function calculateBathPrice(
 ): number {
   const area = width * height;
 
-  // Цены за кв.м для разных материалов
   const materialPrices: Record<string, number> = {
     brus: 15000,
     log: 18000,
@@ -50,14 +49,12 @@ export function calculateBathPrice(
     brick: 20000,
   };
 
-  // Цены за фундаменты
   const foundationPrices: Record<string, number> = {
     strip: 80000,
     pile: 60000,
     slab: 100000,
   };
 
-  // Цены за дополнительные опции
   const optionPrices: Record<string, number> = {
     stove: 50000,
     interior: 80000,
