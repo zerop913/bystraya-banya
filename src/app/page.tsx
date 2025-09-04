@@ -7,7 +7,6 @@ import ProjectsSection from "@/components/ProjectsSection";
 import ProcessSection from "@/components/ProcessSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
-import DeveloperCredit from "@/components/DeveloperCredit";
 
 export default function HomePage() {
   return (
@@ -35,7 +34,6 @@ export default function HomePage() {
         </section>
       </main>
       <Footer />
-      <DeveloperCredit />
     </>
   );
 }

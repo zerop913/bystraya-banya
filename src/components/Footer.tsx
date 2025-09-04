@@ -125,12 +125,32 @@ export default function Footer() {
             initial={{ opacity: 0 }}
             animate={isVisible ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="text-wood-light/60 font-manrope text-sm"
+            className="flex flex-col sm:flex-row justify-between items-center gap-4 text-wood-light/60 font-manrope text-sm"
           >
-            <p className="mb-2">
+            <p>
               &copy; {new Date().getFullYear()} {siteData.company.name}. Все
               права защищены.
             </p>
+
+            <div className="flex items-center gap-2">
+              <span className="text-wood-light/50">made by</span>
+              <a
+                href="https://ivan-smolin.ru"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 text-wood-light/70 hover:text-accent-amber transition-colors duration-200"
+                aria-label="Перейти на сайт разработчика Ivan Smolin"
+              >
+                <img
+                  src="https://ivan-smolin.ru/favicon.svg"
+                  alt=""
+                  width={14}
+                  height={14}
+                  className="w-3.5 h-3.5 filter brightness-0 invert opacity-70 group-hover:opacity-100 transition-opacity duration-200"
+                />
+                <span className="font-medium">ivan-smolin.ru</span>
+              </a>
+            </div>
           </motion.div>
         </motion.div>
       </div>
